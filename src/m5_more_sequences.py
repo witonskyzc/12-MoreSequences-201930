@@ -8,11 +8,10 @@ for ITERATING through SEQUENCES, including:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zach Witonsky.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -58,7 +57,6 @@ def run_test_sum_radii():
     print('Expected:', expected)
     print('Actual:  ', actual)
 
-
 def sum_radii(circles):
     """
     What comes in:
@@ -77,7 +75,7 @@ def sum_radii(circles):
       :rtype: int | float
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # Note: No fair using "slices" on ANY of these problems,
@@ -89,6 +87,10 @@ def sum_radii(circles):
     #       Instead, use explicit loops, as you have for other problems.
     # -------------------------------------------------------------------------
 
+    radii = 0
+    for k in range(len(circles)):
+        radii = radii + circles[k].radius
+    return radii
 
 ###############################################################################
 # Some problems iterate (loop) through PART of the sequence,
@@ -129,7 +131,6 @@ def run_test_count_last_n_odds():
           answer1, answer2, answer3, answer4, answer5, answer6)
     print('The above should be:              0 0 0 1 1 2')
 
-
 def count_last_n_odds(integers, n):
     """
     What comes in:
@@ -152,10 +153,15 @@ def count_last_n_odds(integers, n):
       :rtype: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
 
+    count = 0
+    for k in range(len(integers) - n, len(integers)):
+        if integers[k]%2 > 0:
+            count = count + 1
+    return count
 
 ###############################################################################
 # Some problems iterate (loop) through PART of the sequence,
@@ -202,7 +208,6 @@ def run_test_index_of_first_negative():
         print('  You returned the STRING \'-1\'')
         print('  when you should have returned just -1')
 
-
 def index_of_first_negative(numbers):
     """
     What comes in:
@@ -227,10 +232,13 @@ def index_of_first_negative(numbers):
       :rtype: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
 
+    for k in range(len(numbers)):
+        if numbers[k] < 0:
+            return k
 
 def run_test_contains_an_a():
     """ Tests the   contains_an_a   function. """
@@ -266,7 +274,6 @@ def run_test_contains_an_a():
             print('  instead of the built-in constant:')
             print('       ' + str(expecteds[k]))
 
-
 def contains_an_a(s):
     """
     What comes in:
@@ -285,7 +292,7 @@ def contains_an_a(s):
       :rtype: bool
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ###########################################################################
@@ -299,6 +306,11 @@ def contains_an_a(s):
     #   No fair using the   count   or   find   string methods.
     # -------------------------------------------------------------------------
 
+    for k in range(len(s)):
+        for x in range(len(s[k])):
+            if s[k][x] == 'a':
+                return True
+    return False
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
